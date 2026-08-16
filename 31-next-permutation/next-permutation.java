@@ -19,6 +19,8 @@ class Solution {
 
         int i = n - 2;
 
+        // 1. Find the first number from the right that is smaller than its next element and set that index as index ( if there is no such element then just reverse the array and return  )
+
         while( i >= 0 ){
             if(nums[i] < nums[i+1] ) {
                 index = i;
@@ -27,6 +29,7 @@ class Solution {
             i--;
         }
 
+
         if(i < 0){
 
         reverse(nums , 0 , n-1);
@@ -34,6 +37,7 @@ class Solution {
         return;
         }
 
+        // 2. start the search from the right find the element the is largest then the index and swep that 
         i = n-1;
 
         while(i > 0){
@@ -46,6 +50,8 @@ class Solution {
             }
             i--;
         }
+
+        // 3. Reverse the Array from  index + 1 to nums.length - 1
 
         reverse(nums, index+1 , n-1);
 
